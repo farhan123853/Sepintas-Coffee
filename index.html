@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toko Bintang Bersaudara - Jual Beli Galon & LPG</title>
+    <style>
+        /* Reset CSS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #007BFF;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            margin-bottom: 10px;
+        }
+
+        nav {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            width: 80%;
+            margin: 20px auto;
+        }
+
+        .product {
+            background-color: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .product h2 {
+            margin-bottom: 10px;
+        }
+
+        .product p {
+            margin-bottom: 15px;
+        }
+
+        .product button {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .product button:hover {
+            background-color: #0056b3;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 20px;
+        }
+
+        footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Toko Bintang Bersaudara</h1>
+        <p>Jual Beli Galon & LPG</p>
+    </header>
+
+    <nav>
+        <a href="#home">Beranda</a>
+        <a href="#products">Produk</a>
+        <a href="#about">Tentang Kami</a>
+        <a href="#contact">Kontak</a>
+    </nav>
+
+    <div class="container" id="home">
+        <h2>Selamat Datang di Toko Bintang Bersaudara</h2>
+        <p>Kami menyediakan berbagai jenis galon dan LPG berkualitas dengan harga terjangkau. Silakan lihat produk kami di bawah ini.</p>
+    </div>
+
+    <div class="container" id="products">
+        <div class="product">
+            <h2>Galon Air Mineral</h2>
+            <p>Galon air mineral berkualitas tinggi, aman untuk dikonsumsi.</p>
+            <button onclick="beliProduk('Galon Air Mineral')">Beli Sekarang</button>
+        </div>
+
+        <div class="product">
+            <h2>Galon Gas LPG 3kg</h2>
+            <p>Galon gas LPG 3kg, praktis dan mudah digunakan.</p>
+            <button onclick="beliProduk('Galon Gas LPG 3kg')">Beli Sekarang</button>
+        </div>
+
+        <div class="product">
+            <h2>Galon Gas LPG 12kg</h2>
+            <p>Galon gas LPG 12kg, cocok untuk kebutuhan rumah tangga.</p>
+            <button onclick="beliProduk('Galon Gas LPG 12kg')">Beli Sekarang</button>
+        </div>
+    </div>
+
+    <div class="container" id="about">
+        <h2>Tentang Kami</h2>
+        <p>Toko Bintang Bersaudara adalah toko yang menyediakan berbagai kebutuhan galon dan LPG untuk masyarakat. Kami berkomitmen untuk memberikan produk berkualitas dengan pelayanan terbaik.</p>
+    </div>
+
+    <div class="container" id="contact">
+        <h2>Kontak Kami</h2>
+        <p>Jika Anda memiliki pertanyaan atau ingin memesan produk, silakan hubungi kami di:</p>
+        <p>Email: info@tokobintangbersaudara.com</p>
+        <p>Telepon: 0812-3456-7890</p>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 Toko Bintang Bersaudara. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function beliProduk(namaProduk) {
+            alert(`Terima kasih! Anda telah membeli ${namaProduk}. Silakan hubungi kami untuk proses selanjutnya.`);
+        }
+    </script>
+
+</body>
+</html>
