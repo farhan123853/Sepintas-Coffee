@@ -94,20 +94,35 @@
             color: #555;
         }
 
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
         .product {
             background-color: #fff;
             padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 5px;
+            border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .product img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 15px;
         }
 
         .product h2 {
             margin-bottom: 10px;
+            font-size: 1.5rem;
         }
 
         .product p {
             margin-bottom: 15px;
+            color: #555;
         }
 
         .product button {
@@ -117,6 +132,7 @@
             padding: 10px 20px;
             cursor: pointer;
             border-radius: 5px;
+            font-size: 1rem;
         }
 
         .product button:hover {
@@ -184,22 +200,31 @@
     </div>
 
     <div class="container" id="products">
-        <div class="product">
-            <h2>Galon Air Mineral</h2>
-            <p>Galon air mineral berkualitas tinggi, aman untuk dikonsumsi.</p>
-            <button onclick="beliProduk('Galon Air Mineral')">Beli Sekarang</button>
-        </div>
+        <h2>Produk Kami</h2>
+        <div class="product-grid">
+            <!-- Produk 1 -->
+            <div class="product">
+                <img src="https://via.placeholder.com/250" alt="Galon Air Mineral">
+                <h2>Galon Air Mineral</h2>
+                <p>Galon air mineral berkualitas tinggi, aman untuk dikonsumsi.</p>
+                <button onclick="beliProduk('Galon Air Mineral')">Beli Sekarang</button>
+            </div>
 
-        <div class="product">
-            <h2>Galon Gas LPG 3kg</h2>
-            <p>Galon gas LPG 3kg, praktis dan mudah digunakan.</p>
-            <button onclick="beliProduk('Galon Gas LPG 3kg')">Beli Sekarang</button>
-        </div>
+            <!-- Produk 2 -->
+            <div class="product">
+                <img src="https://via.placeholder.com/250" alt="Galon Gas LPG 3kg">
+                <h2>Galon Gas LPG 3kg</h2>
+                <p>Galon gas LPG 3kg, praktis dan mudah digunakan.</p>
+                <button onclick="beliProduk('Galon Gas LPG 3kg')">Beli Sekarang</button>
+            </div>
 
-        <div class="product">
-            <h2>Galon Gas LPG 12kg</h2>
-            <p>Galon gas LPG 12kg, cocok untuk kebutuhan rumah tangga.</p>
-            <button onclick="beliProduk('Galon Gas LPG 12kg')">Beli Sekarang</button>
+            <!-- Produk 3 -->
+            <div class="product">
+                <img src="https://via.placeholder.com/250" alt="Galon Gas LPG 12kg">
+                <h2>Galon Gas LPG 12kg</h2>
+                <p>Galon gas LPG 12kg, cocok untuk kebutuhan rumah tangga.</p>
+                <button onclick="beliProduk('Galon Gas LPG 12kg')">Beli Sekarang</button>
+            </div>
         </div>
     </div>
 
