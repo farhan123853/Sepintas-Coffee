@@ -107,11 +107,16 @@
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Agar tombol selalu di bagian bawah */
+            height: 100%; /* Pastikan semua kolom memiliki tinggi yang sama */
         }
 
         .product img {
             width: 100%;
-            height: auto;
+            height: 200px; /* Tetapkan tinggi gambar */
+            object-fit: cover; /* Gambar akan menutupi area tanpa distorsi */
             border-radius: 10px;
             margin-bottom: 15px;
         }
@@ -124,6 +129,7 @@
         .product p {
             margin-bottom: 15px;
             color: #555;
+            flex-grow: 1; /* Deskripsi akan mengambil ruang yang tersedia */
         }
 
         .product button {
@@ -134,6 +140,7 @@
             cursor: pointer;
             border-radius: 5px;
             font-size: 1rem;
+            width: 100%; /* Tombol memenuhi lebar kolom */
         }
 
         .product button:hover {
