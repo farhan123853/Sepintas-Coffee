@@ -66,31 +66,12 @@
             flex: 1;
         }
 
-        #map {
+        .home-maps iframe {
             width: 100%;
             height: 300px;
             border: none;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .map-controls {
-            margin-top: 10px;
-            text-align: center;
-        }
-
-        .map-controls button {
-            background-color: #007BFF;
-            color: #fff;
-            border: none;
-            padding: 10px 20px;
-            cursor: pointer;
-            border-radius: 5px;
-            margin: 5px;
-        }
-
-        .map-controls button:hover {
-            background-color: #0056b3;
         }
 
         .product {
@@ -156,13 +137,16 @@
                 <p>Kami menyediakan berbagai jenis galon dan LPG berkualitas dengan harga terjangkau. Silakan lihat produk kami di bawah ini. Tenang, bisa kami antar ke rumah kalian selagi dekat.</p>
             </div>
             <div class="home-maps">
-                <!-- Tempat untuk menampilkan peta -->
-                <div id="map"></div>
-                <!-- Tombol kontrol peta -->
-                <div class="map-controls">
-                    <button onclick="setMapMode('roadmap')">Mode Jalan</button>
-                    <button onclick="setMapMode('satellite')">Mode Satelit</button>
-                </div>
+                <!-- Tautan embed Google Maps yang Anda berikan -->
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!4v1742256773805!6m8!1m7!1s64zcUi2wrwfF9a8zrycTBg!2m2!1d-6.972103079898474!2d109.1315642504101!3f149.44!4f-0.060000000000002274!5f0.7820865974627469"
+                    width="100%"
+                    height="300"
+                    style="border:0;"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
             </div>
         </div>
     </div>
@@ -202,44 +186,10 @@
     </footer>
 
     <script>
-        // Fungsi untuk membeli produk
         function beliProduk(namaProduk) {
             alert(`Terima kasih! Anda telah membeli ${namaProduk}. Silakan hubungi kami untuk proses selanjutnya.`);
         }
-
-        // Inisialisasi peta
-        let map;
-
-        function initMap() {
-            // Koordinat lokasi toko (sesuaikan dengan lokasi Anda)
-            const lokasiToko = { lat: -6.972103079898474, lng: 109.1315642504101 };
-
-            // Buat peta
-            map = new google.maps.Map(document.getElementById("map"), {
-                center: lokasiToko,
-                zoom: 18, // Sesuaikan level zoom
-                mapTypeId: "roadmap", // Mode default: roadmap
-            });
-
-            // Tambahkan marker untuk lokasi toko
-            new google.maps.Marker({
-                position: lokasiToko,
-                map: map,
-                title: "Toko Bintang Bersaudara",
-            });
-        }
-
-        // Fungsi untuk mengubah mode peta
-        function setMapMode(mode) {
-            map.setMapTypeId(mode);
-        }
     </script>
 
-    <!-- Load Google Maps JavaScript API -->
-    <script
-        src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"
-        async
-        defer
-    ></script>
 </body>
 </html>
