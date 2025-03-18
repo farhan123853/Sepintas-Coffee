@@ -98,6 +98,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
+            margin-bottom: 40px; /* Jarak antar kategori produk */
         }
 
         .product {
@@ -150,6 +151,13 @@
         footer p {
             margin: 0;
         }
+
+        .category-title {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #007BFF;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
@@ -201,8 +209,10 @@
 
     <div class="container" id="products">
         <h2>Produk Kami</h2>
+
+        <!-- Kategori: Galon -->
+        <h3 class="category-title">Galon</h3>
         <div class="product-grid">
-            <!-- Galon -->
             <div class="product">
                 <img src="https://via.placeholder.com/250" alt="Galon Air Mineral">
                 <h2>Galon Air Mineral</h2>
@@ -216,8 +226,11 @@
                 <p>Galon isi ulang, hemat dan ramah lingkungan.</p>
                 <button onclick="beliProduk('Galon Isi Ulang')">Beli Sekarang</button>
             </div>
+        </div>
 
-            <!-- Box -->
+        <!-- Kategori: Box/Kardus -->
+        <h3 class="category-title">Box/Kardus</h3>
+        <div class="product-grid">
             <div class="product">
                 <img src="https://via.placeholder.com/250" alt="Box Air Mineral">
                 <h2>Box Air Mineral</h2>
@@ -231,8 +244,11 @@
                 <p>Box galon dengan kapasitas besar, cocok untuk kebutuhan keluarga.</p>
                 <button onclick="beliProduk('Box Galon')">Beli Sekarang</button>
             </div>
+        </div>
 
-            <!-- LPG -->
+        <!-- Kategori: LPG -->
+        <h3 class="category-title">LPG</h3>
+        <div class="product-grid">
             <div class="product">
                 <img src="Images/gas 3 Kg-png.png" alt="Gas LPG 3kg">
                 <h2>Gas LPG 3kg</h2>
