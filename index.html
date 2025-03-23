@@ -115,8 +115,8 @@
 
         .product img {
             width: 100%;
-            height: 200px; /* Tetapkan tinggi gambar */
-            object-fit: cover; /* Gambar akan menutupi area tanpa distorsi */
+            height: 200px;
+            object-fit: cover;
             border-radius: 10px;
             margin-bottom: 15px;
         }
@@ -130,6 +130,13 @@
             margin-bottom: 15px;
             color: #555;
             flex-grow: 1;
+        }
+
+        .product .price {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #007BFF;
+            margin-bottom: 15px;
         }
 
         .product button {
@@ -221,21 +228,24 @@
                 <img src="Images/Aqua Galon.png" alt="Galon Aqua">
                 <h2>Galon Aqua</h2>
                 <p>Galon Aqua 20 Liter.</p>
-                <button onclick="beliProduk('Galon Air Mineral')">Beli Sekarang</button>
+                <div class="price">Rp 50.000</div>
+                <button onclick="beliProduk('Galon Aqua')">Beli Sekarang</button>
             </div>
 
             <div class="product">
                 <img src="Images/Vit Galon.png" alt="Galon Vit">
                 <h2>Galon Vit</h2>
-                <p>Galon Vit 20Liter.</p>
-                <button onclick="beliProduk('Galon Isi Ulang')">Beli Sekarang</button>
+                <p>Galon Vit 20 Liter.</p>
+                <div class="price">Rp 45.000</div>
+                <button onclick="beliProduk('Galon Vit')">Beli Sekarang</button>
             </div>
 
             <div class="product">
                 <img src="Images/Lemin Galon.png" alt="Le Mineral Vit">
                 <h2>Galon Le Mineral</h2>
-                <p>Galon Le Mineral 15Liter.</p>
-                <button onclick="beliProduk('Galon Isi Ulang')">Beli Sekarang</button>
+                <p>Galon Le Mineral 15 Liter.</p>
+                <div class="price">Rp 40.000</div>
+                <button onclick="beliProduk('Galon Le Mineral')">Beli Sekarang</button>
             </div>
         </div>
 
@@ -245,35 +255,40 @@
                 <img src="Images/Kardus Aqua.png" alt="Kardus Aqua Gelas">
                 <h2>Kardus Aqua Gelas</h2>
                 <p>Kardus Aqua Gelas 220ml 48pcs</p>
-                <button onclick="beliProduk('Box Air Mineral')">Beli Sekarang</button>
+                <div class="price">Rp 25.000</div>
+                <button onclick="beliProduk('Kardus Aqua Gelas')">Beli Sekarang</button>
             </div>
 
             <div class="product">
                 <img src="Images/Aqua Botol 330ml.png" alt="Kardus 330ml">
                 <h2>Kardus Aqua Botol Kecil</h2>
                 <p>Kardus Aqua Botol Kecil 330ml 24pcs</p>
-                <button onclick="beliProduk('Box Galon')">Beli Sekarang</button>
+                <div class="price">Rp 30.000</div>
+                <button onclick="beliProduk('Kardus Aqua Botol Kecil')">Beli Sekarang</button>
             </div>
 
             <div class="product">
                 <img src="Images/Aqua Botol 600ml.png" alt="Kardus 600ml">
                 <h2>Kardus Aqua Botol</h2>
                 <p>Kardus Aqua Botol 600ml 24pcs</p>
-                <button onclick="beliProduk('Box Galon')">Beli Sekarang</button>
+                <div class="price">Rp 35.000</div>
+                <button onclick="beliProduk('Kardus Aqua Botol')">Beli Sekarang</button>
             </div>
 
             <div class="product">
                 <img src="Images/Le Mineral Botol.png" alt="Le Mineral 600Ml">
                 <h2>Kardus Le Mineral Botol</h2>
-                <p>Kardus Le Mineral Botom 600ml 24pcs</p>
-                <button onclick="beliProduk('Box Galon')">Beli Sekarang</button>
+                <p>Kardus Le Mineral Botol 600ml 24pcs</p>
+                <div class="price">Rp 32.000</div>
+                <button onclick="beliProduk('Kardus Le Mineral Botol')">Beli Sekarang</button>
             </div>
 
             <div class="product">
                 <img src="Images/Vit Gelas.png" alt="vit 220ml">
                 <h2>Kardus Vit Botol Kecil</h2>
                 <p>Kardus Vit Botol 220ml 48pcs</p>
-                <button onclick="beliProduk('Box Galon')">Beli Sekarang</button>
+                <div class="price">Rp 28.000</div>
+                <button onclick="beliProduk('Kardus Vit Botol Kecil')">Beli Sekarang</button>
             </div>
         </div>
 
@@ -283,6 +298,7 @@
                 <img src="Images/gas 3 Kg-png.png" alt="Gas LPG 3kg">
                 <h2>Gas LPG 3kg</h2>
                 <p>Gas LPG Berat 3kg, praktis dan mudah digunakan.</p>
+                <div class="price">Rp 120.000</div>
                 <button onclick="beliProduk('Gas LPG 3kg')">Beli Sekarang</button>
             </div>
         </div>
