@@ -18,6 +18,7 @@
             background-color: #f4f4f4;
             color: #333;
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
         header {
@@ -29,6 +30,11 @@
 
         header h1 {
             margin-bottom: 10px;
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+        }
+
+        header p {
+            font-size: clamp(1rem, 2vw, 1.2rem);
         }
 
         nav {
@@ -36,27 +42,50 @@
             color: #fff;
             padding: 10px;
             text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
         nav a {
             color: #fff;
             text-decoration: none;
-            margin: 0 15px;
+            margin: 0 10px;
+            font-size: clamp(0.8rem, 3vw, 1rem);
+            padding: 5px 8px;
+            display: inline-block;
         }
 
         nav a:hover {
             text-decoration: underline;
+            background-color: #444;
+            border-radius: 4px;
         }
 
         .container {
-            width: 80%;
+            width: 90%;
+            max-width: 1200px;
             margin: 20px auto;
+            padding: 0 10px;
+        }
+
+        .container h2 {
+            font-size: clamp(1.3rem, 3vw, 1.8rem);
+            margin-bottom: 20px;
+            color: #007BFF;
         }
 
         .home-content {
             display: flex;
+            flex-direction: column;
             gap: 20px;
-            align-items: flex-start;
+            align-items: stretch;
+        }
+
+        @media (min-width: 768px) {
+            .home-content {
+                flex-direction: row;
+            }
         }
 
         .home-description {
@@ -67,6 +96,11 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
+        .home-description p {
+            margin-bottom: 15px;
+            font-size: clamp(0.9rem, 2vw, 1rem);
+        }
+
         .home-description ul {
             margin: 10px 0;
             padding-left: 20px;
@@ -74,15 +108,18 @@
 
         .home-description ul li {
             margin-bottom: 10px;
+            font-size: clamp(0.9rem, 2vw, 1rem);
         }
 
         .home-maps {
             flex: 1;
+            min-height: 300px;
         }
 
         .home-maps iframe {
             width: 100%;
-            height: 300px;
+            height: 100%;
+            min-height: 300px;
             border: none;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -92,6 +129,16 @@
             margin-top: 20px;
             font-style: italic;
             color: #555;
+            font-size: clamp(0.9rem, 2vw, 1rem);
+        }
+
+        .address a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+
+        .address a:hover {
+            text-decoration: underline;
         }
 
         .product-grid {
@@ -103,7 +150,7 @@
 
         .product {
             background-color: #fff;
-            padding: 20px;
+            padding: 15px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             text-align: center;
@@ -111,29 +158,35 @@
             flex-direction: column;
             justify-content: space-between;
             height: 100%;
+            transition: transform 0.3s ease;
+        }
+
+        .product:hover {
+            transform: translateY(-5px);
         }
 
         .product img {
             width: 100%;
             height: 200px;
-            object-fit: cover;
+            object-fit: contain;
             border-radius: 10px;
             margin-bottom: 15px;
         }
 
         .product h2 {
             margin-bottom: 10px;
-            font-size: 1.5rem;
+            font-size: clamp(1.1rem, 2vw, 1.3rem);
         }
 
         .product p {
             margin-bottom: 15px;
             color: #555;
             flex-grow: 1;
+            font-size: clamp(0.9rem, 2vw, 1rem);
         }
 
         .product .price {
-            font-size: 1.2rem;
+            font-size: clamp(1rem, 2vw, 1.2rem);
             font-weight: bold;
             color: #007BFF;
             margin-bottom: 15px;
@@ -146,8 +199,9 @@
             padding: 10px 20px;
             cursor: pointer;
             border-radius: 5px;
-            font-size: 1rem;
+            font-size: clamp(0.9rem, 2vw, 1rem);
             width: 100%;
+            transition: background-color 0.3s;
         }
 
         .product button:hover {
@@ -158,8 +212,9 @@
             background-color: #333;
             color: #fff;
             text-align: center;
-            padding: 10px 0;
+            padding: 15px 0;
             margin-top: 20px;
+            font-size: clamp(0.8rem, 2vw, 1rem);
         }
 
         footer p {
@@ -167,10 +222,79 @@
         }
 
         .category-title {
-            font-size: 1.8rem;
-            margin-bottom: 20px;
+            font-size: clamp(1.3rem, 3vw, 1.8rem);
+            margin: 30px 0 20px;
             color: #007BFF;
             text-align: center;
+        }
+
+        /* Hamburger menu for mobile */
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .menu-toggle span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: #fff;
+            margin: 5px 0;
+            transition: all 0.3s ease;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 10px 15px;
+            }
+            
+            .nav-links {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                background-color: #333;
+                padding: 10px 0;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links a {
+                margin: 5px 0;
+                padding: 10px 15px;
+            }
+            
+            .menu-toggle {
+                display: block;
+            }
+        }
+
+        /* Improved button for touch devices */
+        button {
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        /* Better spacing for mobile */
+        @media (max-width: 480px) {
+            .container {
+                width: 95%;
+            }
+            
+            .product {
+                padding: 10px;
+            }
+            
+            .product img {
+                height: 150px;
+            }
         }
     </style>
 </head>
@@ -182,10 +306,18 @@
     </header>
 
     <nav>
-        <a href="#home">Beranda</a>
-        <a href="#products">Produk</a>
-        <a href="#about">Tentang Kami</a>
-        <a href="#contact">Kontak</a>
+        <div class="logo">Menu</div>
+        <div class="menu-toggle" id="mobile-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="nav-links" id="nav-links">
+            <a href="#home">Beranda</a>
+            <a href="#products">Produk</a>
+            <a href="#about">Tentang Kami</a>
+            <a href="#contact">Kontak</a>
+        </div>
     </nav>
 
     <div class="container" id="home">
@@ -209,7 +341,7 @@
                 <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d247.51964165779071!2d109.13146726848521!3d-6.972201140731695!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6fbee707eb1ca9%3A0xaa9e1bf431e3bf27!2s24HJ%2B4JX%2C%20Gg.%204%2C%20Perum%20Pepabri%2C%20Kudaile%2C%20Kec.%20Slawi%2C%20Kabupaten%20Tegal%2C%20Jawa%20Tengah!5e0!3m2!1sen!2sid!4v1742258828366!5m2!1sen!2sid"
                     width="100%"
-                    height="300"
+                    height="100%"
                     style="border:0;"
                     allowfullscreen=""
                     loading="lazy"
@@ -311,7 +443,8 @@
 
     <div class="container" id="contact">
         <h2>Kontak Kami</h2>
-        <p>Telepon: 0823-2227-2246</p>
+        <p>Telepon: <a href="tel:082322272246" style="color: #007BFF; text-decoration: none;">0823-2227-2246</a></p>
+        <p>WhatsApp: <a href="https://wa.me/6282322272246" style="color: #007BFF; text-decoration: none;">0823-2227-2246</a></p>
     </div>
 
     <footer>
@@ -321,8 +454,21 @@
     <script>
         function beliProduk(namaProduk) {
             alert(`Terima kasih! Anda telah membeli ${namaProduk}. Silakan hubungi kami untuk proses selanjutnya.`);
+            
+            // For mobile devices, suggest calling or WhatsApp
+            if (/Mobi|Android/i.test(navigator.userAgent)) {
+                if (confirm('Ingin langsung menghubungi kami via WhatsApp?')) {
+                    window.location.href = 'https://wa.me/6282322272246?text=Saya%20ingin%20memesan%20' + encodeURIComponent(namaProduk);
+                }
+            }
         }
-    </script>
-
-</body>
-</html>
+        
+        // Mobile menu toggle
+        document.getElementById('mobile-menu').addEventListener('click', function() {
+            document.getElementById('nav-links').classList.toggle('active');
+            
+            // Animate hamburger icon
+            this.querySelectorAll('span').forEach((span, index) => {
+                if (index === 0) 
+                    span.style.transform = document.getElementById('nav-links').classList.contains('active') ? 
+                        'rotate(45deg) translate(5px, 5px)' : 'none';
