@@ -26,6 +26,7 @@
             color: #fff;
             padding: 20px 0;
             text-align: center;
+            position: relative;
         }
 
         header h1 {
@@ -37,29 +38,61 @@
             font-size: clamp(1rem, 2vw, 1.2rem);
         }
 
-        nav {
-            background-color: #333;
-            color: #fff;
-            padding: 10px;
-            text-align: center;
-            position: sticky;
-            top: 0;
+        /* New Navigation Style - Top Right */
+        .nav-container {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        .menu-toggle {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 5px 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .menu-toggle span {
+            margin-left: 5px;
+        }
+
+        .nav-links {
+            display: none;
+            position: absolute;
+            right: 0;
+            top: 100%;
+            background-color: white;
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            border-radius: 5px;
             z-index: 100;
         }
 
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            margin: 0 10px;
-            font-size: clamp(0.8rem, 3vw, 1rem);
-            padding: 5px 8px;
-            display: inline-block;
+        .nav-links.active {
+            display: block;
+            animation: fadeIn 0.3s;
         }
 
-        nav a:hover {
-            text-decoration: underline;
-            background-color: #444;
-            border-radius: 4px;
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .nav-links a {
+            color: #333;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+            transition: background-color 0.3s;
+        }
+
+        .nav-links a:hover {
+            background-color: #f1f1f1;
         }
 
         .container {
@@ -228,55 +261,6 @@
             text-align: center;
         }
 
-        /* Hamburger menu for mobile */
-        .menu-toggle {
-            display: none;
-            cursor: pointer;
-            padding: 10px;
-        }
-
-        .menu-toggle span {
-            display: block;
-            width: 25px;
-            height: 3px;
-            background-color: #fff;
-            margin: 5px 0;
-            transition: all 0.3s ease;
-        }
-
-        @media (max-width: 768px) {
-            nav {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                padding: 10px 15px;
-            }
-            
-            .nav-links {
-                display: none;
-                width: 100%;
-                flex-direction: column;
-                position: absolute;
-                top: 60px;
-                left: 0;
-                background-color: #333;
-                padding: 10px 0;
-            }
-            
-            .nav-links.active {
-                display: flex;
-            }
-            
-            .nav-links a {
-                margin: 5px 0;
-                padding: 10px 15px;
-            }
-            
-            .menu-toggle {
-                display: block;
-            }
-        }
-
         /* Improved button for touch devices */
         button {
             -webkit-tap-highlight-color: transparent;
@@ -295,6 +279,11 @@
             .product img {
                 height: 150px;
             }
+            
+            .nav-container {
+                top: 10px;
+                right: 10px;
+            }
         }
     </style>
 </head>
@@ -303,22 +292,20 @@
     <header>
         <h1>Toko Bintang Bersaudara</h1>
         <p>Jual Beli Galon & LPG</p>
+        
+        <!-- New Navigation in Top Right -->
+        <div class="nav-container">
+            <button class="menu-toggle" id="mobile-menu">
+                ☰ <span>Menu</span>
+            </button>
+            <div class="nav-links" id="nav-links">
+                <a href="#home">Beranda</a>
+                <a href="#products">Produk</a>
+                <a href="#about">Tentang Kami</a>
+                <a href="#contact">Kontak</a>
+            </div>
+        </div>
     </header>
-
-    <nav>
-        <div class="logo">Menu</div>
-        <div class="menu-toggle" id="mobile-menu">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-        <div class="nav-links" id="nav-links">
-            <a href="#home">Beranda</a>
-            <a href="#products">Produk</a>
-            <a href="#about">Tentang Kami</a>
-            <a href="#contact">Kontak</a>
-        </div>
-    </nav>
 
     <div class="container" id="home">
         <h2>Selamat Datang di Toko Bintang Bersaudara</h2>
@@ -464,11 +451,21 @@
         }
         
         // Mobile menu toggle
-        document.getElementById('mobile-menu').addEventListener('click', function() {
+        document.getElementById('mobile-menu').addEventListener('click', function(e) {
+            e.stopPropagation(); // Prevent event bubbling
             document.getElementById('nav-links').classList.toggle('active');
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+            const navLinks = document.getElementById('nav-links');
+            const mobileMenu = document.getElementById('mobile-menu');
             
-            // Animate hamburger icon
-            this.querySelectorAll('span').forEach((span, index) => {
-                if (index === 0) 
-                    span.style.transform = document.getElementById('nav-links').classList.contains('active') ? 
-                        'rotate(45deg) translate(5px, 5px)' : 'none';
+            if (!mobileMenu.contains(e.target) {
+                navLinks.classList.remove('active');
+            }
+        });
+    </script>
+
+</body>
+</html>
