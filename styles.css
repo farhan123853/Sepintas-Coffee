@@ -1,14 +1,18 @@
+
 /* Setel latar belakang untuk seluruh halaman dengan gradasi merah ke hitam */
 body {
-    background: linear-gradient(to right, #e11d48, #111827); /* Gradasi merah ke hitam */
+    background: linear-gradient(to right, #990018, #111827); /* Gradasi merah gelap ke hitam */
     color: white; /* Menyesuaikan warna teks agar lebih mudah dibaca */
     margin: 0;
     font-family: sans-serif;
+    min-height: 100vh; /* Pastikan background mengisi seluruh tinggi halaman */
+    display: flex;
+    flex-direction: column;
 }
 
-/* Header dengan Gradasi */
+/* Header dengan Gradasi Merah Gelap ke Hitam */
 header {
-    background: linear-gradient(to right, #e11d48, #111827); /* Gradasi merah ke hitam */
+    background: linear-gradient(to right, #990018, #111827); /* Gradasi merah gelap ke hitam */
     padding: 20px 0;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -27,23 +31,25 @@ header .text-3xl {
 }
 
 /* Styling Navigation Menu */
+/* Navbar dengan Coklat Tua */
 nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    background-color: #6f4f28 !important; /* Coklat tua untuk navbar */
+    color: white !important; /* Teks navbar putih */
 }
 
+/* Styling untuk link di navbar */
 nav a {
-    text-transform: uppercase;
-    color: white;
+    color: white !important; /* Teks navbar putih */
     font-size: 1rem;
     font-weight: 600;
+    text-transform: uppercase;
     padding: 8px 16px;
     transition: color 0.3s ease;
 }
 
+/* Hover pada Menu */
 nav a:hover {
-    color: #fbbf24; /* Warna amber saat hover */
+    color: #fbbf24 !important; /* Warna amber saat hover */
 }
 
 /* Tombol Cart */
@@ -64,7 +70,7 @@ button.relative {
 /* Mobile Menu Styling */
 #mobile-menu {
     display: none;
-    background: #111827;
+    background: #6f4f28; /* Coklat tua untuk menu mobile */
     padding-top: 15px;
 }
 
@@ -83,24 +89,33 @@ button.relative {
     display: block;
 }
 
-
-/* Setel latar belakang untuk seluruh halaman dengan gradasi yang lebih lembut */
-body {
-    background: linear-gradient(to right, rgba(154, 26, 32, 0.7), rgba(17, 24, 39, 0.8)); /* Gradasi merah ke hitam dengan transparansi */
-    color: white; /* Menyesuaikan warna teks agar lebih mudah dibaca */
-    margin: 0;
-    font-family: sans-serif;
-}
-
-/* Jika Anda ingin menambahkan gradasi pada setiap section atau div, gunakan ini */
-section, .content, .main {
+/* Pastikan background gradasi merah ke hitam diterapkan ke seluruh section */
+section, .content, .main, #contact, .visit-us {
     background: inherit; /* Membuat setiap section mewarisi latar belakang dari body */
     color: white; /* Mengubah teks menjadi putih agar terlihat jelas di background gelap */
+    padding: 20px;
 }
 
-/* Mengatur latar belakang navigasi menjadi gradasi merah ke hitam */
-nav {
-    background: linear-gradient(to right, rgba(154, 26, 32, 0.7), rgba(17, 24, 39, 0.8)); /* Gradasi merah ke hitam dengan transparansi */
+/* Visit Us Section */
+#contact {
+    background: inherit; /* Menyebabkan "Visit Us" mengikuti gradasi yang sama */
+}
+
+/* Footer Section */
+footer {
+    background-color: #b97d51; /* Karamel atau coklat muda untuk footer */
+    padding: 40px 0;
+    color: white;
+    text-align: center;
+    margin-top: auto; /* Memastikan footer berada di bawah */
+}
+
+/* Newsletter Section */
+.newsletter {
+    background: inherit; /* Memastikan section newsletter memiliki latar belakang yang sama */
+    padding: 40px 0;
+    color: white;
+    text-align: center;
 }
 
 /* Hover pada Menu */
@@ -108,7 +123,7 @@ nav a:hover {
     color: #fbbf24; /* Warna hover amber */
 }
 
-/* Mengatur tombol dan hover */
+/* Tombol */
 button {
     background-color: #fbbf24; /* Warna tombol Amber */
     color: white;
