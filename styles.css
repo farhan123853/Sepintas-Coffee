@@ -1,7 +1,7 @@
 
 /* Setel latar belakang untuk seluruh halaman dengan gradasi merah ke hitam */
 body {
-    background: linear-gradient(to right, #990018, #111827); /* Gradasi merah gelap ke hitam */
+    background: linear-gradient(to right, #720919, #111827); /* Gradasi merah gelap ke hitam */
     color: white; /* Menyesuaikan warna teks agar lebih mudah dibaca */
     margin: 0;
     font-family: sans-serif;
@@ -12,7 +12,7 @@ body {
 
 /* Header dengan Gradasi Merah Gelap ke Hitam */
 header {
-    background: linear-gradient(to right, #990018, #111827); /* Gradasi merah gelap ke hitam */
+    background: linear-gradient(to right, #720919, #111827); /* Gradasi merah gelap ke hitam */
     padding: 20px 0;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -30,16 +30,19 @@ header .text-3xl {
     color: white;
 }
 
-/* Styling Navigation Menu */
-/* Navbar dengan Coklat Tua */
+/* Navbar dengan Coklat Muda (tanpa gradasi) */
 nav {
-    background-color: #6f4f28 !important; /* Coklat tua untuk navbar */
-    color: white !important; /* Teks navbar putih */
+    background-color: #b97d51; /* Coklat muda untuk navbar */
+    color: white; /* Teks navbar putih */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
 }
 
 /* Styling untuk link di navbar */
 nav a {
-    color: white !important; /* Teks navbar putih */
+    color: white; /* Teks navbar putih */
     font-size: 1rem;
     font-weight: 600;
     text-transform: uppercase;
@@ -47,10 +50,10 @@ nav a {
     transition: color 0.3s ease;
 }
 
-/* Hover pada Menu */
 nav a:hover {
-    color: #fbbf24 !important; /* Warna amber saat hover */
+    color: #fbbf24; /* Warna amber saat hover */
 }
+
 
 /* Tombol Cart */
 button.relative {
