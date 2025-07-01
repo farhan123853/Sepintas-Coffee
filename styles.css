@@ -1,22 +1,3 @@
-
-/* Setel latar belakang untuk seluruh halaman dengan gradasi merah ke hitam */
-body {
-    background: linear-gradient(to right, #720919, #111827); /* Gradasi merah gelap ke hitam */
-    color: white; /* Menyesuaikan warna teks agar lebih mudah dibaca */
-    margin: 0;
-    font-family: sans-serif;
-    min-height: 100vh; /* Pastikan background mengisi seluruh tinggi halaman */
-    display: flex;
-    flex-direction: column;
-}
-
-/* Header dengan Gradasi Merah Gelap ke Hitam */
-header {
-    background: linear-gradient(to right, #720919, #111827); /* Gradasi merah gelap ke hitam */
-    padding: 20px 0;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
 /* Styling untuk Logo */
 header img {
     height: 40px;
@@ -54,6 +35,23 @@ nav a:hover {
     color: #fbbf24; /* Warna amber saat hover */
 }
 
+/* Setel latar belakang untuk seluruh halaman dengan gradasi merah ke hitam */
+body {
+    background: linear-gradient(to right, #720919, #111827); /* Gradasi merah gelap ke hitam */
+    color: white; /* Menyesuaikan warna teks agar lebih mudah dibaca */
+    margin: 0;
+    font-family: sans-serif;
+    min-height: 100vh; /* Pastikan background mengisi seluruh tinggi halaman */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header dengan Gradasi Merah Gelap ke Hitam */
+header {
+    background: linear-gradient(to right, #720919, #111827); /* Gradasi merah gelap ke hitam */
+    padding: 20px 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
 
 /* Tombol Cart */
 button.relative {
@@ -153,4 +151,50 @@ button:hover {
 
 #mobile-menu a:hover {
     color: #fbbf24; /* Warna hover amber untuk menu mobile */
+}
+
+/* Gaya untuk tombol kategori */
+.category-button {
+    padding: 12px 24px; /* Menyesuaikan padding agar tombol tetap oval namun tidak terlalu besar */
+    background-color: white; /* Latar belakang putih untuk tombol */
+    color: #111827; /* Warna teks hitam */
+    border: 2px solid #ddd; /* Border warna abu-abu muda */
+    border-radius: 50px; /* Membuat tombol berbentuk oval */
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.3s ease; /* Transisi halus untuk efek hover */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Bayangan lembut di bawah tombol */
+    width: 120px; /* Lebar tombol yang lebih ramping */
+    height: 50px; /* Tinggi tombol yang lebih proporsional */
+}
+
+/* Efek saat hover pada tombol kategori */
+.category-button:hover {
+    transform: scale(1.05); /* Efek zoom saat hover */
+    background-color: #fbbf24; /* Latar belakang berubah menjadi amber saat hover */
+    border-color: #fbbf24; /* Border berubah menjadi warna amber */
+    color: white; /* Warna teks berubah menjadi putih saat hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Bayangan lebih besar saat hover */
+}
+
+/* Gaya untuk gambar di dalam tombol kategori */
+.category-button img {
+    width: 40px; /* Menyesuaikan ukuran gambar ikon */
+    height: 40px;
+    object-fit: cover;
+    margin-bottom: 8px; /* Memberikan jarak antara gambar dan teks */
+}
+
+/* Gaya untuk teks di bawah gambar */
+.category-button p {
+    font-size: 1rem; /* Ukuran font teks yang lebih pas */
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px; /* Memberikan jarak antara huruf */
+    color: #111827; /* Warna teks default */
+    margin-top: 6px; /* Memberikan jarak antara teks dan gambar */
 }

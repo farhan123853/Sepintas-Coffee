@@ -75,7 +75,7 @@
                     <img src="Cafe.webp" alt="sepintas coffee" class="rounded-lg shadow-xl w-full">
                 </div>
                 <div class="md:w-1/2">
-                    <h3 class="text-2xl font-bold mb-4">Deskripsi</h3>
+                    <h3 class="text-2xl font-bold mb-4">Sepintas Coffee</h3>
                     <p class="text-white-700 mb-4">
                         Sepintas Coffee adalah tempat yang mengundang setiap penikmat kopi untuk merasakan pengalaman tak terlupakan di setiap tegukan. Berdiri sejak 2015, kami berkomitmen untuk menyajikan kopi terbaik yang tidak hanya menggugah selera, tetapi juga memberikan suasana nyaman yang membuat setiap kunjungan menjadi kenangan manis.
 
@@ -110,22 +110,99 @@
 
     <!-- Menu Section -->
     <section id="menu" class="py-20 bg-amber-50">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">Our Menu</h2>
-                <div class="w-24 h-1 bg-amber-600 mx-auto mb-8"></div>
-                <div class="flex justify-center space-x-2 mb-8">
-                    <button onclick="filterMenu('all')" class="px-4 py-2 bg-amber-600 text-white rounded-full text-sm">All</button>
-                    <button onclick="filterMenu('coffee')" class="px-4 py-2 bg-white text-amber-900 rounded-full text-sm">Coffee</button>
-                    <button onclick="filterMenu('tea')" class="px-4 py-2 bg-white text-amber-900 rounded-full text-sm">Tea</button>
-                    <button onclick="filterMenu('pastry')" class="px-4 py-2 bg-white text-amber-900 rounded-full text-sm">Pastry</button>
-                </div>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="menu-container">
-                <!-- Menu items will be injected by JS -->
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">Our Menu</h2>
+            <div class="w-24 h-1 bg-amber-600 mx-auto mb-8"></div>
+            
+            <!-- Kategori Menu (Tombol dengan Teks) -->
+            <div class="flex justify-center space-x-6 mb-8">
+                <button class="category-button" onclick="filterMenu('all')">
+                    <p class="mt-2 text-sm">All</p>
+                </button>
+                <button class="category-button" onclick="filterMenu('coffee')">
+                    <p class="mt-2 text-sm">Coffee</p>
+                </button>
+                <button class="category-button" onclick="filterMenu('juices')">
+                    <p class="mt-2 text-sm">Juices</p>
+                </button>
+                <button class="category-button" onclick="filterMenu('pastry')">
+                    <p class="mt-2 text-sm">Pastry</p>
+                </button>
+                <button class="category-button" onclick="filterMenu('smoothies')">
+                    <p class="mt-2 text-sm">Smoothies</p>
+                </button>
             </div>
         </div>
-    </section>
+
+        <!-- Isi Menu (Produk dengan Gambar) -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6" id="menu-items">
+            <!-- Produk Coffee -->
+            <div class="menu-item coffee bg-white p-6 rounded-lg shadow-lg text-center">
+                <img src="images/coffee-1.jpg" alt="Coffee 1" class="w-full h-48 object-cover mb-4 rounded">
+                <h3 class="text-xl font-semibold text-amber-600 mb-3">Coffee 1</h3>
+                <p class="text-gray-700">Freshly brewed espresso with rich crema.</p>
+            </div>
+            <div class="menu-item coffee bg-white p-6 rounded-lg shadow-lg text-center">
+                <img src="images/coffee-1.jpg" alt="Coffee 1" class="w-full h-48 object-cover mb-4 rounded">
+                <h3 class="text-xl font-semibold text-amber-600 mb-3">Coffee 1</h3>
+                <p class="text-gray-700">Freshly brewed espresso with rich crema.</p>
+            </div>
+            <div class="menu-item coffee bg-white p-6 rounded-lg shadow-lg text-center">
+                <img src="images/coffee-1.jpg" alt="Coffee 1" class="w-full h-48 object-cover mb-4 rounded">
+                <h3 class="text-xl font-semibold text-amber-600 mb-3">Coffee 1</h3>
+                <p class="text-gray-700">Freshly brewed espresso with rich crema.</p>
+            </div>
+            <!-- Produk Juices -->
+            <div class="menu-item juices bg-white p-6 rounded-lg shadow-lg text-center">
+                <img src="green tea.avif" alt="Juice 1" class="w-full h-48 object-cover mb-4 rounded">
+                <h3 class="text-xl font-semibold text-amber-600 mb-3">Mango Juice</h3>
+                <p class="text-gray-700">Fresh mango juice made from the best fruits.</p>
+            </div>
+            <div class="menu-item juices bg-white p-6 rounded-lg shadow-lg text-center">
+                <img src="images/juice-1.jpg" alt="Juice 1" class="w-full h-48 object-cover mb-4 rounded">
+                <h3 class="text-xl font-semibold text-amber-600 mb-3">Mango Juice</h3>
+                <p class="text-gray-700">Fresh mango juice made from the best fruits.</p>
+            </div><div class="menu-item juices bg-white p-6 rounded-lg shadow-lg text-center">
+                <img src="images/juice-1.jpg" alt="Juice 1" class="w-full h-48 object-cover mb-4 rounded">
+                <h3 class="text-xl font-semibold text-amber-600 mb-3">Mango Juice</h3>
+                <p class="text-gray-700">Fresh mango juice made from the best fruits.</p>
+            </div>
+            <!-- Produk Pastry -->
+            <div class="menu-item pastry bg-white p-6 rounded-lg shadow-lg text-center">
+                <img src="images/pastry-1.jpg" alt="Pastry 1" class="w-full h-48 object-cover mb-4 rounded">
+                <h3 class="text-xl font-semibold text-amber-600 mb-3">Croissant</h3>
+                <p class="text-gray-700">Flaky and buttery croissant, perfect with your coffee.</p>
+            </div>
+            <div class="menu-item pastry bg-white p-6 rounded-lg shadow-lg text-center">
+                <img src="images/pastry-1.jpg" alt="Pastry 1" class="w-full h-48 object-cover mb-4 rounded">
+                <h3 class="text-xl font-semibold text-amber-600 mb-3">Croissant</h3>
+                <p class="text-gray-700">Flaky and buttery croissant, perfect with your coffee.</p>
+            </div><div class="menu-item pastry bg-white p-6 rounded-lg shadow-lg text-center">
+                <img src="images/pastry-1.jpg" alt="Pastry 1" class="w-full h-48 object-cover mb-4 rounded">
+                <h3 class="text-xl font-semibold text-amber-600 mb-3">Croissant</h3>
+                <p class="text-gray-700">Flaky and buttery croissant, perfect with your coffee.</p>
+            </div>
+            <!-- Produk Smoothies -->
+            <div class="menu-item smoothies bg-white p-6 rounded-lg shadow-lg text-center">
+                <img src="images/smoothie-1.jpg" alt="Smoothie 1" class="w-full h-48 object-cover mb-4 rounded">
+                <h3 class="text-xl font-semibold text-amber-600 mb-3">Berry Smoothie</h3>
+                <p class="text-gray-700">A refreshing blend of strawberries, blueberries, and yogurt.</p>
+            </div>
+            <div class="menu-item smoothies bg-white p-6 rounded-lg shadow-lg text-center">
+                <img src="images/smoothie-1.jpg" alt="Smoothie 1" class="w-full h-48 object-cover mb-4 rounded">
+                <h3 class="text-xl font-semibold text-amber-600 mb-3">Berry Smoothie</h3>
+                <p class="text-gray-700">A refreshing blend of strawberries, blueberries, and yogurt.</p>
+            </div>
+            <div class="menu-item smoothies bg-white p-6 rounded-lg shadow-lg text-center">
+                <img src="images/smoothie-1.jpg" alt="Smoothie 1" class="w-full h-48 object-cover mb-4 rounded">
+                <h3 class="text-xl font-semibold text-amber-600 mb-3">Berry Smoothie</h3>
+                <p class="text-gray-700">A refreshing blend of strawberries, blueberries, and yogurt.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
 
     <!-- Gallery Section -->
     <section id="gallery" class="py-20 bg-white">
