@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Detail Produk - Risol Mayo</title>
+    <title>Detail Produk - Hot Red Velvet</title>
     <link rel="stylesheet" href="../styles.css" />
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
@@ -16,19 +16,20 @@
         </a>
 
         <div class="bg-white rounded-lg shadow-lg p-8 flex flex-col md:flex-row items-center">
-            <img src="https://raw.githubusercontent.com/farhan123853/assets/refs/heads/main/risol%20mayo.jpg"
-                alt="Risol Mayo"
+            <img src="https://raw.githubusercontent.com/farhan123853/assets/refs/heads/main/hot%20red%20velvet.jpg"
+                alt="Hot Red Velvet"
                 class="w-full md:w-1/3 h-64 object-cover rounded mb-6 md:mb-0 md:mr-8" />
 
             <div class="flex-1 text-black">
-                <h1 class="text-3xl font-bold text-amber-700 mb-4">Risol Mayo</h1>
+                <h1 class="text-3xl font-bold text-amber-700 mb-4">Hot Red Velvet</h1>
                 <p class="text-gray-800 mb-4">
-                    Risol dengan isian mayones, daging, dan sayuran. Digoreng hingga renyah dan cocok dinikmati kapan saja.
+                    Minuman red velvet hangat dengan rasa manis dan lembut, cocok untuk menemani waktu santai Anda.
                 </p>
 
+                <!-- Tombol pemesanan langsung ke keranjang -->
                 <form action="../cart.php" method="post" class="mt-4">
-                    <input type="hidden" name="menu_id" value="9" />
-                    <input type="hidden" name="quantity" value="1" />
+                    <input type="hidden" name="menu_id" value="5">
+                    <input type="hidden" name="quantity" value="1">
                     <button type="submit" name="add_to_cart"
                         class="bg-amber-600 hover:bg-amber-700 text-white font-bold py-3 px-8 rounded-full transition">
                         Pesan Sekarang

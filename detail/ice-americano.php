@@ -13,7 +13,7 @@
     <div class="container mx-auto px-4 py-10 flex-1">
         <a href="../index.php#menu" class="text-amber-500 hover:underline mb-6 inline-block">&larr; Kembali ke Menu</a>
         <div class="bg-white rounded-lg shadow-lg p-8 flex flex-col md:flex-row items-center">
-            <img src="../images/ice-americano.jpg" alt="Ice Americano" class="w-full md:w-1/3 h-64 object-cover rounded mb-6 md:mb-0 md:mr-8">
+            <img src="https://raw.githubusercontent.com/farhan123853/assets/refs/heads/main/es-americano-populer-di-korea-selatan-1744877075100.jpeg" alt="Ice Americano" class="w-full md:w-1/3 h-64 object-cover rounded mb-6 md:mb-0 md:mr-8">
             <div class="flex-1">
                 <h1 class="text-3xl font-bold text-amber-700 mb-4">Ice Americano</h1>
                 <p class="text-gray-800 mb-4">Kopi Americano dingin, segar dengan rasa kopi yang kuat dan menyegarkan.</p>

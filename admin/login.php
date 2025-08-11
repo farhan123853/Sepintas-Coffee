@@ -10,7 +10,7 @@ if (isset($_SESSION['admin'])) {
 } else {
     $login_success = false;
 }
-include '../includes/db.php';
+include __DIR__ . '/db.php';
 $error = '';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = $conn->real_escape_string($_POST['email']);
@@ -49,6 +49,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <?php if (isset($_GET['login']) && $_GET['login'] == 'success'): ?>
             <a href="dashboard.php" class="w-full mt-4 block bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded font-semibold text-center">Ke Dashboard Admin</a>
         <?php endif; ?>
+        <div class="mt-6 text-center text-sm">
+            Belum punya akun? <a href="register_form.php" class="text-amber-700 hover:underline font-semibold">Register di sini</a>
+        </div>
     </form>
 </div>
 <?php include 'admin_footer.php'; ?>

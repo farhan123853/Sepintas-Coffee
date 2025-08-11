@@ -1,6 +1,6 @@
 <?php
 if (session_status() === PHP_SESSION_NONE) session_start();
-include __DIR__ . '/includes/db.php';
+include __DIR__ . '/db.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">

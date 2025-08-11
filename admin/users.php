@@ -4,7 +4,7 @@ if (!isset($_SESSION['admin'])) {
     header('Location: login.php');
     exit;
 }
-include '../includes/db.php';
+include __DIR__ . '/db.php';
 include 'admin_header.php';
 
 // Handle add/edit/delete

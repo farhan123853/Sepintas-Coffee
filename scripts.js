@@ -4,34 +4,36 @@ document.addEventListener('DOMContentLoaded', function() {
     const buttons = document.querySelectorAll('#menu .flex button');
     const menuItems = document.querySelectorAll('#menu-items .menu-item');
 
-    const menuSection = document.getElementById('menu');
     buttons.forEach(btn => {
         btn.addEventListener('click', function() {
             // Remove active style from all buttons
             buttons.forEach(b => b.classList.remove('ring-2', 'ring-amber-500', 'font-extrabold'));
-            // Add active style to clicked button
             btn.classList.add('ring-2', 'ring-amber-500', 'font-extrabold');
 
             const filter = btn.textContent.trim().toLowerCase();
+
+            // Tampilkan atau sembunyikan menu-item
             menuItems.forEach(item => {
-                if (filter === 'all') {
-                    item.style.display = '';
-                } else if (filter === 'snack') {
-                    // snack = pastry
-                    item.style.display = item.classList.contains('snack') ? '' : 'none';
-                } else {
-                    item.style.display = item.classList.contains(filter) ? '' : 'none';
-                }
+                const category = item.dataset.category?.toLowerCase();
+                item.style.display = (filter === 'all' || category === filter) ? '' : 'none';
             });
-            // Scroll ke section menu
-            if (menuSection) {
-                menuSection.scrollIntoView({ behavior: 'smooth' });
+
+            // Scroll ke section sesuai kategori
+            let sectionId = '';
+            if (filter === 'coffee') sectionId = 'section-coffee';
+            else if (filter === 'non-coffee') sectionId = 'section-non-coffee';
+            else if (filter === 'snack') sectionId = 'section-snack';
+            else sectionId = 'menu'; // default scroll to top of menu
+
+            const sectionToScroll = document.getElementById(sectionId);
+            if (sectionToScroll) {
+                sectionToScroll.scrollIntoView({ behavior: 'smooth' });
             }
         });
     });
 });
 
-// Cart logic for pelanggan
+// Cart logic (masih aktif, tapi tidak dipakai jika pakai tombol Pesan Sekarang)
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
 function updateCartCount() {
@@ -125,9 +127,10 @@ document.addEventListener('DOMContentLoaded', function() {
             card.appendChild(btn);
         }
     });
+
     document.getElementById('cart-btn').onclick = toggleCart;
     document.getElementById('cart-overlay').onclick = toggleCart;
-    // Tambahkan event untuk tombol keranjang di mobile menu
+
     var mobileCartBtn = document.querySelector('#mobile-menu button[onclick*="toggleCart"]');
     if (mobileCartBtn) {
         mobileCartBtn.onclick = function(e) {
@@ -135,5 +138,5 @@ document.addEventListener('DOMContentLoaded', function() {
             toggleCart();
         };
     }
+
     renderCartItems();
-});

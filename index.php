@@ -1,5 +1,6 @@
 <?php
-include 'admin/includes/db.php';
+session_start();
+include 'admin/db.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,42 +16,70 @@ include 'admin/includes/db.php';
 </head>
 
 <body class="font-sans bg-gray-900 text-white">
-    <!-- Navigation -->
-    <nav class="fixed w-full bg-gradient-to-r from-[#6f4f28] to-[#111827] shadow-md z-50">
-        <div class="container mx-auto px-4 py-5 flex justify-between items-center text-lg">
-            <a href="#" class="flex items-center">
-                <img src="https://raw.githubusercontent.com/farhan123853/assets/refs/heads/main/logo.jpeg" class="h-8 w-8 mr-2" alt="Sepintas Coffee Logo" />
-                <span class="text-xl font-bold text-white">Sepintas Coffee</span>
-            </a>
-            <div class="hidden md:flex space-x-8">
-                <a href="#home" class="text-white hover:text-amber-400 transition">Beranda</a>
-                <a href="#about" class="text-white hover:text-amber-400 transition">Tentang Kami</a>
-                <a href="#menu" class="text-white hover:text-amber-400 transition">Menu</a>
-                <a href="#gallery" class="text-white hover:text-amber-400 transition">Gallery</a>
-                <a href="#contact" class="text-white hover:text-amber-400 transition">Kontak</a>
-                <a href="cart.php" id="cart-btn" class="relative">
-                    <i class="fas fa-shopping-cart text-white"></i>
-                    <span id="cart-count" class="absolute -top-2 -right-2 bg-amber-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">0</span>
-                </a>
-            </div>
-            <button id="mobile-menu-button" class="md:hidden text-white">
-                <i class="fas fa-bars text-2xl"></i>
+    <!-- Navbar -->
+    <nav class="flex justify-between items-center py-4 px-8 shadow-md bg-gradient-to-r from-amber-900 via-[#3c2f28] to-black">
 
-            </button>
+        <!-- Kiri: Logo -->
+        <div class="flex items-center space-x-2 text-2xl font-bold text-white">
+            <img src="https://raw.githubusercontent.com/farhan123853/assets/refs/heads/main/logo.jpeg" alt="Logo" class="h-8 w-auto">
+            <span>☕</span>
+            <span>Sepintas Coffee</span>
         </div>
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white py-2 px-4 shadow-lg">
-            <a href="#home" class="block py-2 text-amber-900 hover:text-amber-600 transition">Beranda</a>
-            <a href="#about" class="block py-2 text-amber-900 hover:text-amber-600 transition">Tentang Kami</a>
-            <a href="#menu" class="block py-2 text-amber-900 hover:text-amber-600 transition">Menu</a>
-            <a href="#gallery" class="block py-2 text-amber-900 hover:text-amber-600 transition">Gallery</a>
-            <a href="#contact" class="block py-2 text-amber-900 hover:text-amber-600 transition">Kontak</a>
-            <a href="cart.php" class="block py-2 relative">
-                <i class="fas fa-shopping-cart mr-2"></i> Cart
-                <span id="mobile-cart-count" class="ml-2 bg-amber-500 text-white text-xs rounded-full h-5 w-5 inline-flex items-center justify-center">0</span>
+
+        <!-- Tengah: Navigasi -->
+        <div class="space-x-6 hidden md:flex text-sm font-medium text-white">
+            <a href="index.php" class="hover:text-amber-400 transition flex items-center">
+                <i class="fas fa-home mr-1"></i> Beranda
             </a>
+            <a href="#menu" class="hover:text-amber-400 transition flex items-center">
+                <i class="fas fa-mug-hot mr-1"></i> Menu
+            </a>
+            <a href="#about" class="hover:text-amber-400 transition flex items-center">
+                <i class="fas fa-info-circle mr-1"></i> Tentang Kami
+            </a>
+            <a href="#contact" class="hover:text-amber-400 transition flex items-center">
+                <i class="fas fa-phone-alt mr-1"></i> Kontak
+            </a>
+        </div>
+
+        <!-- Kanan: Cart + Login/Register atau Nama + Logout -->
+        <div class="flex items-center space-x-4 text-sm text-white">
+            <!-- Keranjang -->
+            <a href="cart.php" class="relative hover:text-amber-400 transition">
+                <i class="fas fa-shopping-cart text-xl"></i>
+                <?php
+                $total_items = isset($_SESSION['cart']) ? array_sum(array_column($_SESSION['cart'], 'quantity')) : 0;
+                if ($total_items > 0):
+                ?>
+                    <span class="absolute -top-2 -right-2 bg-red-600 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">
+                        <?= $total_items ?>
+                    </span>
+                <?php endif; ?>
+            </a>
+
+            <!-- Autentikasi -->
+            <?php if (!isset($_SESSION['customer_id'])): ?>
+                <a href="customer/login_customer.php" class="hover:text-amber-400 transition flex items-center">
+                    <i class="fas fa-sign-in-alt mr-1"></i> Login
+                </a>
+                <a href="customer/register_customer.php" class="hover:text-amber-400 transition flex items-center">
+                    <i class="fas fa-user-plus mr-1"></i> Register
+                </a>
+            <?php else: ?>
+                <!-- Nama User -->
+                <span class="text-amber-300 hidden md:inline-flex items-center">
+                    <i class="fas fa-user-circle mr-1"></i> Halo, <strong class="ml-1"><?= htmlspecialchars($_SESSION['customer_name']); ?></strong>
+                </span>
+                <!-- Logout -->
+                <a href="customer/logout_customer.php" class="hover:text-red-400 transition flex items-center">
+                    <i class="fas fa-sign-out-alt mr-1"></i> Logout
+                </a>
+            <?php endif; ?>
         </div>
     </nav>
+
+
+
 
 
     <!-- Hero Section -->
@@ -132,57 +161,43 @@ include 'admin/includes/db.php';
                     <button class="px-8 py-3 bg-white text-black font-bold rounded-full shadow hover:bg-amber-100 focus:outline-none focus:ring-2 focus:ring-amber-500 transition text-lg uppercase">SNACK</button>
                 </div>
             </div>
-            <!-- Isi Menu (Produk dengan Gambar) -->
+
+            <?php
+            include 'admin/db.php';
+
+            $query = "SELECT * FROM menu";
+            $result = mysqli_query($conn, $query) or die("Query error: " . mysqli_error($conn));
+            ?>
+
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6" id="menu-items">
-                <!-- Produk Coffee -->
-                <div class="menu-item coffee bg-white p-6 rounded-lg shadow-lg text-center">
-                    <img src="https://raw.githubusercontent.com/farhan123853/assets/refs/heads/main/ice%20%20caramel.jpg" alt="ice Caramel" class="w-full h-48 object-cover mb-4 rounded">
-                    <h3 class="text-xl font-semibold text-amber-600 mb-3">ice Caramel</h3>
-                    <a href="detail/caramel.php" class="inline-block mt-2 bg-amber-600 hover:bg-amber-700 text-white font-bold py-2 px-6 rounded-full transition">Pesan Disini</a>
-                </div>
-                <div class="menu-item coffee bg-white p-6 rounded-lg shadow-lg text-center">
-                    <img src="https://raw.githubusercontent.com/farhan123853/assets/refs/heads/main/es-americano-populer-di-korea-selatan-1744877075100.jpeg" alt="es americano" class="w-full h-48 object-cover mb-4 rounded">
-                    <h3 class="text-xl font-semibold text-amber-600 mb-3">es americano</h3>
-                    <a href="detail/machiato.php" class="inline-block mt-2 bg-amber-600 hover:bg-amber-700 text-white font-bold py-2 px-6 rounded-full transition">Pesan Disini</a>
-                </div>
-                <div class="menu-item coffee bg-white p-6 rounded-lg shadow-lg text-center">
-                    <img src="https://raw.githubusercontent.com/farhan123853/assets/refs/heads/main/ice%20kopi%20susu.jpg" alt="es kopi susu gula aren" class="w-full h-48 object-cover mb-4 rounded">
-                    <h3 class="text-xl font-semibold text-amber-600 mb-3">es kopi susu gula aren</h3>
-                    <a href="detail/kopi-susu-gula-aren.php" class="inline-block mt-2 bg-amber-600 hover:bg-amber-700 text-white font-bold py-2 px-6 rounded-full transition">Pesan Disini</a>
-                </div>
-                <!-- Produk Non-coffee -->
-                <div class="menu-item non-coffee bg-white p-6 rounded-lg shadow-lg text-center">
-                    <img src="https://raw.githubusercontent.com/farhan123853/assets/refs/heads/main/matcha%20panas.jpg" alt="hot matcha" class="w-full h-48 object-cover mb-4 rounded">
-                    <h3 class="text-xl font-semibold text-amber-600 mb-3">hot matcha</h3>
-                    <a href="detail/matcha.php" class="inline-block mt-2 bg-amber-600 hover:bg-amber-700 text-white font-bold py-2 px-6 rounded-full transition">Pesan Disini</a>
-                </div>
-                <div class="menu-item non-coffee bg-white p-6 rounded-lg shadow-lg text-center">
-                    <img src="https://raw.githubusercontent.com/farhan123853/assets/refs/heads/main/hot%20red%20velvet.jpg" alt="hot red velvet" class="w-full h-48 object-cover mb-4 rounded">
-                    <h3 class="text-xl font-semibold text-amber-600 mb-3">hot red velvet</h3>
-                    <a href="detail/red-velvet.php" class="inline-block mt-2 bg-amber-600 hover:bg-amber-700 text-white font-bold py-2 px-6 rounded-full transition">Pesan Disini</a>
-                </div>
-                <div class="menu-item non-coffee bg-white p-6 rounded-lg shadow-lg text-center">
-                    <img src="https://raw.githubusercontent.com/farhan123853/assets/refs/heads/main/coklat%20panas.jpg" alt="hot chocolate" class="w-full h-48 object-cover mb-4 rounded">
-                    <h3 class="text-xl font-semibold text-amber-600 mb-3">hot chocolate</h3>
-                    <a href="detail/hot-coklat.php" class="inline-block mt-2 bg-amber-600 hover:bg-amber-700 text-white font-bold py-2 px-6 rounded-full transition">Pesan Disini</a>
-                </div>
-                <!-- Produk Snack -->
-                <div class="menu-item snack bg-white p-6 rounded-lg shadow-lg text-center">
-                    <img src="https://raw.githubusercontent.com/farhan123853/assets/refs/heads/main/risol%20mayo.jpg" alt="risol mayo" class="w-full h-48 object-cover mb-4 rounded">
-                    <h3 class="text-xl font-semibold text-amber-600 mb-3">risol mayo</h3>
-                    <a href="detail/risol mayo.php" class="inline-block mt-2 bg-amber-600 hover:bg-amber-700 text-white font-bold py-2 px-6 rounded-full transition">Pesan Disini</a>
-                </div>
-                <div class="menu-item snack bg-white p-6 rounded-lg shadow-lg text-center">
-                    <img src="https://raw.githubusercontent.com/farhan123853/assets/refs/heads/main/chicken%20pop%20corn.jpg" alt="chicken pop corn" class="w-full h-48 object-cover mb-4 rounded">
-                    <h3 class="text-xl font-semibold text-amber-600 mb-3">chicken pop corn</h3>
-                    <a href="detail/chicken pop corn.php" class="inline-block mt-2 bg-amber-600 hover:bg-amber-700 text-white font-bold py-2 px-6 rounded-full transition">Pesan Disini</a>
-                </div>
-                <div class="menu-item snack bg-white p-6 rounded-lg shadow-lg text-center">
-                    <img src="https://raw.githubusercontent.com/farhan123853/assets/refs/heads/main/kentang%20goreng.jpg" alt="kentang goreng" class="w-full h-48 object-cover mb-4 rounded">
-                    <h3 class="text-xl font-semibold text-amber-600 mb-3">kentang goreng</h3>
-                    <a href="detail/kentang goreng.php" class="inline-block mt-2 bg-amber-600 hover:bg-amber-700 text-white font-bold py-2 px-6 rounded-full transition">Pesan Disini</a>
-                </div>
+                <?php while ($row = mysqli_fetch_assoc($result)) : ?>
+                    <div class="menu-item <?= htmlspecialchars($row['category'] ?? '') ?> bg-white p-6 rounded-lg shadow-lg text-center">
+                        <img src="<?= htmlspecialchars($row['image_url'] ?? '') ?>" alt="<?= htmlspecialchars($row['name'] ?? '') ?>" class="w-full h-48 object-cover mb-4 rounded">
+
+                        <h3 class="text-xl font-semibold text-amber-600 mb-2">
+                            <?= htmlspecialchars($row['name'] ?? '') ?>
+                        </h3>
+
+                        <p class="text-sm text-gray-500 italic mb-2">
+                            <?= htmlspecialchars($row['category'] ?? '') ?>
+                        </p>
+
+                        <p class="text-gray-700 text-sm mb-2">
+                            <?= htmlspecialchars($row['description'] ?? '') ?>
+                        </p>
+
+                        <p class="text-lg font-bold text-gray-900 mb-4">
+                            Rp <?= isset($row['price']) ? number_format($row['price'], 0, ',', '.') : '0' ?>
+                        </p>
+
+                        <a href="detail/<?= urlencode(strtolower(str_replace(' ', '-', $row['name'] ?? ''))) ?>.php" class="inline-block mt-2 bg-amber-600 hover:bg-amber-700 text-white font-bold py-2 px-6 rounded-full transition">
+                            Pesan Disini
+                        </a>
+                    </div>
+                <?php endwhile; ?>
             </div>
+
+
         </div>
     </section>
 
